@@ -8,14 +8,8 @@ function highlightPRStatus() {
       if (textContent == 'Changes requested') {
         d.classList.add('changes-requested');
         d.classList.remove('muted-link');
-      }
-      else if (textContent == 'Approved') {
-        if (d.getAttribute('aria-label') === '1 review approval') {
-          d.classList.add('partially-approved');
-          text.textContent = 'Partially Approved';
-        } else {
-          d.classList.add('approved');
-        }
+      } else if (textContent == 'Approved') {
+        d.classList.add('approved');
         d.classList.remove('muted-link');
       }
     }
