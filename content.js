@@ -1,15 +1,18 @@
 function highlightPRStatus() {
-  var pullRequest = [].slice.call(document.querySelectorAll('.js-issue-row'), 0);
-  pullRequest.forEach(function (pr) {
-    var text = pr.querySelector('.opened-by + span > a')
+  var pullRequests = [].slice.call(document.querySelectorAll('.js-issue-row'), 0);
+  pullRequests.forEach(function (pr) {
+    var text = pr.querySelector('.opened-by + span span > a')
     if (!!text) {
       var textContent = text.textContent.trim();
-      var d = pr.querySelector('.opened-by + span > a');
+      var d = pr.querySelector('.opened-by + span span > a');
       if (textContent == 'Changes requested') {
         d.classList.add('changes-requested');
         d.classList.remove('muted-link');
       } else if (textContent == 'Approved') {
         d.classList.add('approved');
+        d.classList.remove('muted-link');
+      } else if (textContent == 'Review required') {
+        d.classList.add('review-requested');
         d.classList.remove('muted-link');
       }
     }
